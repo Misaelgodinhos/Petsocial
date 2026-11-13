@@ -60,3 +60,27 @@ body{background:#fff}.top{max-width:660px;background:transparent;position:relati
 .continue-panel .progress-track span{width:var(--reading-progress,auto)}.continue-percent{font-size:12px;font-weight:700;color:#817b91;align-self:flex-end}
 
 .top-capture{display:grid;place-items:center;width:34px;height:38px;border:0;background:transparent;color:inherit;padding:0}.top-capture .ui-icon{width:22px;height:22px}.reader-topbar #captureReader .ui-icon{width:21px;height:21px}@media(max-width:380px){.top-actions{gap:2px}.top-capture{width:28px}.reader-topbar #captureReader{min-width:25px}}
+
+/* 8.5 — correção visual da captura real: cabeçalho integrado, capa compacta */
+#cordeiro5:has(.home-hero){background:#fff}
+#cordeiro5:has(.home-hero) .top{position:absolute;top:0;left:50%;transform:translateX(-50%);width:100%;height:76px;max-width:660px;padding:0 20px;background:transparent!important;color:white;z-index:8}
+#cordeiro5:has(.home-hero) .top .brand{font-size:21px;gap:11px}
+#cordeiro5:has(.home-hero) .top .mark{width:43px;height:43px;border-radius:12px;box-shadow:0 6px 18px #290e5355}
+#cordeiro5:has(.home-hero) .top-actions{gap:8px}
+#cordeiro5:has(.home-hero) .top-actions button{color:white!important}
+#cordeiro5:has(.home-hero) #content{padding-top:0!important}
+#cordeiro5:has(.home-hero) .home-hero{min-height:0!important;height:auto!important;padding:132px 20px 31px!important;background-image:linear-gradient(180deg,#11142bd9 0%,#11142b66 34%,#11142b26 60%,#171428d6 100%),url('hero-sunset.svg')!important;background-size:cover!important;background-position:center 45%!important}
+#cordeiro5:has(.home-hero) .home-hero-content{padding:0!important}
+#cordeiro5:has(.home-hero) .home-hero h1{font-size:clamp(30px,8.5vw,39px)!important;font-weight:750;letter-spacing:-1.1px;line-height:1.13;margin:0 0 8px}
+#cordeiro5:has(.home-hero) .home-hero-content p{font-size:clamp(14px,4.2vw,17px)!important;line-height:1.35;max-width:290px}
+#cordeiro5:has(.home-hero) .daily-glass{margin-top:58px!important;padding:15px 16px 17px!important;border-radius:18px!important;background:linear-gradient(135deg,#2b2a3ec9,#272637bb)!important;box-shadow:0 8px 24px #08071629;backdrop-filter:blur(12px)}
+#cordeiro5:has(.home-hero) .daily-label{font-size:13px!important;gap:9px}
+#cordeiro5:has(.home-hero) .daily-glass p{font-size:clamp(15px,4.2vw,18px)!important;line-height:1.4;margin:10px 0 10px;padding-right:4px}
+#cordeiro5:has(.home-hero) .daily-ref{font-size:12px!important}
+#cordeiro5:has(.home-hero) .daily-share{right:12px;bottom:12px;width:33px;height:33px}
+#cordeiro5:has(.home-hero) .home-body{padding-top:17px!important}
+#cordeiro5:has(.home-hero) .quick-grid button{min-height:83px}
+#cordeiro5:has(.home-hero) .section-heading{margin-top:24px}
+#cordeiro5:has(.home-hero) .hero-dots{display:none}
+@media(min-width:600px){#cordeiro5:has(.home-hero) .home-hero{padding:138px 30px 35px!important}#cordeiro5:has(.home-hero) .daily-glass{max-width:520px;margin-top:72px!important}#cordeiro5:has(.home-hero) .home-hero-content p{max-width:370px}}
+@media(max-width:380px){#cordeiro5:has(.home-hero) .top{height:65px;padding:0 13px}#cordeiro5:has(.home-hero) .top .brand{font-size:19px}#cordeiro5:has(.home-hero) .top .mark{width:38px;height:38px}#cordeiro5:has(.home-hero) .top-actions{gap:3px}#cordeiro5:has(.home-hero) .home-hero{padding:109px 16px 23px!important}#cordeiro5:has(.home-hero) .daily-glass{margin-top:46px!important}#cordeiro5:has(.home-hero) .daily-glass p{font-size:15px!important}}
