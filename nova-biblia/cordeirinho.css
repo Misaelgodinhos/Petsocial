@@ -34,3 +34,17 @@ button,select,input,textarea{border-radius:12px!important}button{transition:tran
 .dark{background:#121212!important;color:#f5f5f5!important}.dark header,.dark aside,.dark article,.dark .home-card,.dark .bottom-nav{background:#1c1c1c!important;color:#f5f5f5!important;border-color:#333!important}.dark header h1,.dark .home-card h3,.dark .home-card p,.dark #reader article h2{color:#fff!important}.dark .quick{background:#303030!important;color:#fff!important}.dark .hero{background:linear-gradient(120deg,#282828,#414141)}.dark .hero h2,.dark .hero p{color:#fff!important}.dark .hero:after,.dark .hero:before{color:#fff!important}.dark .green-btn,.dark .continue{background:#eee!important;color:#111!important}
 @media(min-width:760px){#reader{display:grid!important;grid-template-columns:260px 1fr;gap:18px}.hero{border-radius:24px;margin-top:20px;min-height:350px}.bottom-nav{max-width:560px;left:50%;transform:translateX(-50%);border-radius:18px 18px 0 0}}
 @media(max-width:420px){.hero{min-height:265px;padding:23px 17px}.hero-copy{max-width:70%}.hero:before{font-size:55px;right:8%}.hero:after{font-size:135px;right:1%}.quick-grid{gap:8px}.quick,.quick:nth-child(n){min-height:95px;border-radius:17px!important;font-size:10px!important}.quick span{font-size:29px}.home-card{padding:17px!important}}
+/* Detalhes fiéis à referência: ilustração e ícones em traço */
+.hero{background:linear-gradient(115deg,#fff 0%,#fafafa 52%,#e9e9e9 100%)!important;isolation:isolate}
+.hero:after{content:""!important;position:absolute;right:-2%;bottom:0;width:60%;height:94%;background:url("cordeirinho-arte.svg") center bottom/contain no-repeat;opacity:1!important;filter:none!important;z-index:-1}
+.hero:before{content:""!important;position:absolute;inset:auto 0 0;height:34%;background:linear-gradient(transparent,#ddd);opacity:.45;z-index:-2}
+.hero-copy{z-index:1}
+.hero h2{font-weight:850!important}
+.quick span,.bottom-nav span{filter:none!important;display:flex;align-items:center;justify-content:center}
+.quick svg{width:37px;height:37px;stroke:#111;stroke-width:1.8;fill:none;stroke-linecap:round;stroke-linejoin:round}
+.bottom-nav svg{width:25px;height:25px;stroke:currentColor;stroke-width:1.9;fill:none;stroke-linecap:round;stroke-linejoin:round}
+.bottom-nav .active svg{fill:#111;stroke:#111}
+.home-card:first-of-type{position:relative;overflow:hidden}
+.home-card:first-of-type:after{content:"";display:block;position:absolute;right:0;bottom:0;width:44%;height:90px;background:url("cordeirinho-arte.svg") center bottom/contain no-repeat;opacity:.18;pointer-events:none}
+.home-card p{position:relative;z-index:1;max-width:76%}
+@media(max-width:420px){.hero:after{width:64%;height:87%;right:-9%}.hero-copy{max-width:67%}.hero h2{font-size:33px!important;letter-spacing:-1px!important}.hero p{font-size:16px!important}.quick svg{width:30px;height:30px}.home-card p{max-width:85%}}
