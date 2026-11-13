@@ -1,2 +1,68 @@
 /* Cordeirinho 5.0 — novo design, independente das versões anteriores */
 :root{font-family:system-ui,-apple-system,"Segoe UI",sans-serif;color:#181818;background:#fafaf8}*{box-sizing:border-box}body{margin:0;background:#fafaf8;color:#181818}button,input,select,textarea{font:inherit}button{cursor:pointer}button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:2px solid #444;outline-offset:3px}#cordeiro5{min-height:100vh}.top{height:65px;position:sticky;top:0;z-index:10;background:#fff;border-bottom:1px solid #eee;display:flex;align-items:center;justify-content:space-between;padding:0 max(18px,calc((100vw - 950px)/2))}.brand{border:0;background:none;font-size:19px;font-weight:800;letter-spacing:-.8px;color:inherit;display:flex;align-items:center;gap:8px}.mark{font-size:28px;font-weight:400}.round,.circle{border:1px solid #e9e9e9;background:white;border-radius:50%;height:39px;width:39px;display:grid;place-items:center;color:inherit}#content{max-width:950px;margin:auto;padding:24px 18px 110px}.eyebrow{font-size:10px;letter-spacing:1.7px;font-weight:750;color:#898989}.section{margin:28px 0 12px}.welcome{background:#ededeb;border-radius:19px;margin:12px 0 25px;min-height:270px;padding:30px;position:relative;overflow:hidden}.welcome h1{font:normal clamp(33px,6vw,55px)/1.06 Georgia,serif;letter-spacing:-1.4px;margin:16px 0 12px;position:relative;z-index:1}.welcome p{font-size:13px;color:#666;max-width:240px;line-height:1.6;position:relative;z-index:1}.primary{background:#171717;color:white;border:0;border-radius:10px;padding:12px 17px;font-size:12px;font-weight:650;margin-top:10px;position:relative;z-index:1}.primary span{margin-left:18px}.hero-symbol{font-family:Georgia,serif;font-size:240px;color:#d0d0cd;position:absolute;right:5%;bottom:-80px;line-height:1;pointer-events:none}.feature{border:1px solid #ebebe9;background:#fff;border-radius:17px;padding:24px}.quote{font:normal clamp(20px,4vw,28px)/1.45 Georgia,serif;max-width:650px;margin:15px 0}.sub{color:#858585;font-size:12px;line-height:1.6}.shortcuts{display:grid;grid-template-columns:repeat(3,1fr);gap:11px}.shortcuts button{background:white;border:1px solid #e9e9e9;border-radius:14px;padding:19px 12px;display:flex;flex-direction:column;align-items:flex-start;gap:14px;font-size:12px;color:inherit}.shortcuts b{font-size:25px;font-weight:400}.reading{display:flex;align-items:center;justify-content:space-between;margin-top:24px;border-radius:16px;background:#1b1b1b;color:#fff;padding:21px 23px}.reading strong{display:block;margin-top:8px;font-size:16px}.reading .eyebrow{color:#aaa}.tabs{position:fixed;z-index:20;bottom:0;left:0;right:0;display:flex;justify-content:space-around;background:#fff;border-top:1px solid #eee;padding:9px 8px max(10px,env(safe-area-inset-bottom))}.tabs button{background:none;border:0;display:flex;flex-direction:column;gap:3px;align-items:center;color:#8a8a8a;font-size:10px;min-width:65px}.tabs button span{font-size:23px}.tabs button.active{color:#111;font-weight:800}.reader-picker{display:grid;grid-template-columns:2fr 1fr;gap:10px;margin:17px 0 24px}.reader-picker label{display:flex;flex-direction:column;gap:7px;font-size:11px;color:#777}.reader-picker select{background:white;border:1px solid #e6e6e6;border-radius:10px;padding:12px;color:#222;width:100%;font-size:13px}.reader-title{display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #e9e9e9;padding-bottom:20px}.reader-title h1,.page-title{font:normal 34px Georgia,serif;margin:6px 0}.reading-tools{display:flex;align-items:center;gap:10px;margin:18px 0}.reading-tools button,.chapter-nav button{border:1px solid #e7e7e7;background:white;border-radius:9px;padding:9px 13px;color:#222}.verses{font-family:Georgia,serif;line-height:1.85;max-width:760px}.verse{margin:0 0 14px;line-height:1.85;padding:4px 6px;border-radius:7px;cursor:pointer}.verse sup{font:600 11px system-ui,sans-serif;color:#888;margin-right:5px}.verse.marked{background:#ededed}.chapter-nav{display:flex;justify-content:space-between;gap:10px;margin:26px 0}.note-box{border-top:1px solid #eee;margin-top:25px;padding-top:12px}.note-box h3,.small-title{font-size:14px;font-weight:700;margin:25px 0 12px}.note-box textarea{width:100%;min-height:110px;border:1px solid #e6e6e6;border-radius:11px;padding:12px;background:#fff;color:#222;font-size:13px}.search-input{width:100%;padding:16px;border-radius:13px;border:1px solid #dedede;background:white;margin:18px 0 8px;font-size:14px}.result,.library-item{display:flex;gap:12px;align-items:center;width:100%;text-align:left;background:white;border:1px solid #eaeaea;border-radius:11px;padding:14px;margin:9px 0;color:#222}.result{flex-direction:column;align-items:flex-start}.result strong{font-size:12px}.result span{font:14px/1.55 Georgia,serif}.library-item span{flex:1}.empty{background:#f3f3f3;border-radius:12px;padding:20px;font:13px system-ui,sans-serif}.empty input{max-width:100%}.night{background:#151515;color:#eee}.night body{background:#151515;color:#eee}.night .top,.night .tabs,.night .feature,.night .shortcuts button,.night .reader-picker select,.night .reading-tools button,.night .chapter-nav button,.night .note-box textarea,.night .search-input,.night .result,.night .library-item,.night .round{background:#252525;color:#eee;border-color:#404040}.night .welcome{background:#303030}.night .welcome p{color:#ccc}.night .primary{background:#eee;color:#111}.night .tabs button.active{color:white}.night .reader-title{border-color:#444}.night .verse.marked{background:#393939}.night .empty{background:#303030}@media(max-width:500px){.top{height:59px;padding:0 14px}.brand{font-size:18px}#content{padding:17px 13px 95px}.welcome{min-height:248px;padding:23px}.welcome h1{font-size:35px}.welcome p{max-width:205px;font-size:12px}.hero-symbol{font-size:155px;right:-3%;bottom:-35px}.shortcuts{gap:7px}.shortcuts button{font-size:10px;padding:14px 9px;gap:9px}.feature{padding:19px}.quote{font-size:21px}.reader-title h1,.page-title{font-size:29px}.tabs button{min-width:58px}}
+/* Cordeirinho 5.1 — novo sistema visual: biblioteca contemporânea */
+:root{--bg:#f6f6f3;--surface:#fff;--ink:#161616;--soft:#727272;--border:#e7e7e2}
+body{background:var(--bg)!important;color:var(--ink)!important;letter-spacing:-.12px}
+.top{height:70px!important;background:var(--bg)!important;border-bottom:1px solid var(--border)!important;padding:0 max(22px,calc((100vw - 1000px)/2))!important}
+.brand{font-size:18px!important;letter-spacing:-.7px!important;gap:10px!important}
+.mark{display:grid;place-items:center;background:#191919;color:#fff;border-radius:12px;width:37px;height:37px;font-size:25px!important}
+.top .round{width:35px;height:35px;background:transparent!important;border:1px solid #deded9!important}
+#content{max-width:1000px!important;padding:34px 22px 120px!important}
+#content>.eyebrow:first-child{color:#777;font-size:10px;letter-spacing:2.3px}
+.welcome{min-height:365px!important;background:#191919!important;color:#fff!important;border-radius:23px!important;padding:47px 49px!important;margin:18px 0 36px!important;box-shadow:none!important}
+.welcome .eyebrow{color:#a9a9a9!important;letter-spacing:2.3px!important}
+.welcome h1{font-size:clamp(43px,6.3vw,71px)!important;line-height:1.03!important;letter-spacing:-2.5px!important;margin:22px 0 17px!important;font-weight:400!important}
+.welcome p{color:#c7c7c7!important;max-width:300px!important;font-size:13px!important;line-height:1.8!important}
+.welcome .primary{background:#fff!important;color:#181818!important;border-radius:100px!important;padding:13px 20px!important;margin-top:16px!important}
+.hero-symbol{font-size:360px!important;right:2%!important;bottom:-118px!important;color:#333!important;opacity:.9!important;transform:rotate(-12deg)}
+.section{margin:36px 0 16px!important;color:#888!important;font-size:10px!important;letter-spacing:2.2px!important}
+.feature{padding:35px 40px!important;border-radius:19px!important;border:1px solid var(--border)!important;background:#fff!important}
+.feature .eyebrow{color:#999!important}
+.quote{font-size:clamp(25px,4vw,38px)!important;letter-spacing:-.8px!important;line-height:1.38!important;margin:19px 0!important}
+.shortcuts{gap:14px!important}
+.shortcuts button{border:1px solid var(--border)!important;border-radius:17px!important;padding:23px 24px!important;min-height:135px!important;font-size:13px!important;font-weight:600!important;transition:transform .15s,border-color .15s!important}
+.shortcuts button:hover{transform:translateY(-2px);border-color:#bbb!important}
+.shortcuts b{font-size:31px!important}
+.reading{margin-top:25px!important;background:#e9e9e5!important;color:#191919!important;border-radius:17px!important;padding:25px 28px!important}
+.reading .eyebrow{color:#777!important}
+.reading strong{font-family:Georgia,serif;font-size:23px!important;font-weight:400!important}
+.reading .circle{background:#191919!important;color:#fff!important;border:0!important}
+.tabs{bottom:17px!important;left:50%!important;right:auto!important;transform:translateX(-50%);width:min(460px,calc(100% - 28px));border:1px solid #e5e5e1!important;border-radius:20px!important;box-shadow:0 8px 34px #00000012!important;padding:9px 8px!important;justify-content:space-around!important}
+.tabs button{font-size:10px!important;gap:3px!important;padding:3px 5px!important}
+.tabs button span{font-size:22px!important}
+.tabs button.active{color:#111!important}
+.reader-picker{margin-top:23px!important}
+.reader-picker select,.search-input,.note-box textarea{background:#fff!important;border-color:var(--border)!important;border-radius:12px!important}
+.reader-title{margin-top:10px}
+.reader-title h1,.page-title{font-size:clamp(32px,5vw,46px)!important;letter-spacing:-1px!important}
+.verses{max-width:720px;margin:20px auto 0}
+.verse{margin-bottom:19px!important;line-height:1.92!important}
+.verse.marked{background:#e8e8e4!important}
+.note-box{margin-top:35px!important}
+.result,.library-item{border-color:var(--border)!important;border-radius:13px!important;padding:17px!important}
+.night{--bg:#161616;--surface:#242424;--ink:#f0f0f0;--border:#383838}
+.night body,.night .top{background:#161616!important;color:#eee!important}
+.night .mark{background:#eee!important;color:#111!important}
+.night .feature,.night .shortcuts button,.night .tabs,.night .reader-picker select,.night .note-box textarea,.night .search-input,.night .result,.night .library-item{background:#242424!important;border-color:#383838!important;color:#eee!important}
+.night .welcome{background:#303030!important}.night .hero-symbol{color:#454545!important}
+.night .reading{background:#333!important;color:#eee!important}.night .reading .circle{background:#eee!important;color:#111!important}
+.night .tabs button.active{color:#fff!important}.night .verse.marked{background:#353535!important}
+@media(max-width:600px){
+.top{height:62px!important;padding:0 16px!important}
+#content{padding:20px 14px 110px!important}
+.welcome{min-height:315px!important;padding:29px 25px!important;margin:14px 0 28px!important;border-radius:20px!important}
+.welcome h1{font-size:clamp(38px,10vw,51px)!important;letter-spacing:-1.7px!important;margin:21px 0 14px!important}
+.welcome p{font-size:12px!important;max-width:205px!important}
+.welcome .primary{font-size:11px!important;padding:11px 15px!important}
+.hero-symbol{font-size:185px!important;right:-7%!important;bottom:-48px!important}
+.section{margin:26px 0 12px!important}
+.feature{padding:24px 22px!important}
+.quote{font-size:25px!important}
+.shortcuts{gap:8px!important}
+.shortcuts button{min-height:102px!important;padding:14px 11px!important;font-size:11px!important;border-radius:14px!important}
+.shortcuts b{font-size:26px!important}
+.reading{padding:20px!important}
+.reading strong{font-size:19px!important}
+.tabs{bottom:10px!important;border-radius:18px!important}
+}
+@media(max-width:350px){.welcome{padding:23px 19px!important}.welcome h1{font-size:36px!important}.welcome p{max-width:180px!important}.hero-symbol{font-size:155px!important}.shortcuts button{font-size:10px!important;padding:10px 7px!important}}
