@@ -72,3 +72,17 @@ main{height:calc(100dvh - 72px);grid-template-columns:78px 282px minmax(0,1fr) 2
  aside #toolPanel{max-height:95px}
 }
 @media(max-width:760px){.workspace-foot>span:last-of-type{display:none}}
+
+/* NOVA Design 1.8 */
+.selection-actions{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:8px 14px;background:#fff;border-bottom:1px solid var(--line);flex:none;min-width:0}
+.selection-actions[hidden],.selection-actions button[hidden]{display:none!important}
+.selection-actions>span{font-size:11px;color:#747480}.selection-actions>div{display:flex;gap:6px;min-width:0;overflow-x:auto;scrollbar-width:none}
+.selection-actions button{white-space:nowrap;font-size:12px;min-height:36px;padding:7px 10px}
+.studio-dialog{color:var(--ink);background:white;border:1px solid var(--line);border-radius:20px;padding:24px;width:min(480px,calc(100vw - 24px));max-height:calc(100dvh - 24px);overflow:auto;box-shadow:0 24px 90px #17152d33}
+.studio-dialog::backdrop{background:#17152666;backdrop-filter:blur(3px)}
+.dialog-heading{display:flex;align-items:center;justify-content:space-between;gap:12px}.dialog-heading h2{font-size:21px;letter-spacing:-.5px;margin:0}.dialog-heading button{font-size:24px;min-height:44px;min-width:44px;border:0;padding:4px}
+.studio-dialog p{color:#727380;font-size:13px;line-height:1.6}.studio-dialog label{display:block;font-weight:600;font-size:12px;margin:18px 0 8px}
+.studio-dialog textarea,.studio-dialog select{width:100%;padding:12px;border:1px solid #dcdce8;border-radius:10px;font:inherit;font-size:16px;background:#fafafe;color:#222;line-height:1.5}.studio-dialog textarea{resize:vertical;min-height:130px;max-height:40dvh}
+.studio-dialog .text-count{font-size:11px;text-align:right}.dialog-actions{display:flex;justify-content:flex-end;gap:8px;margin-top:22px}.dialog-actions button{min-height:44px}
+button:disabled{opacity:.55;cursor:wait}
+@media(max-width:760px){.selection-actions{padding:5px 8px;min-height:44px}.selection-actions>span{display:none}.selection-actions>div{width:100%;justify-content:flex-start}.selection-actions button{min-height:36px;font-size:11px;flex:1;padding:7px}.studio-dialog{padding:18px;border-radius:16px}.dialog-actions button{flex:1}.dialog-heading h2{font-size:20px}}
