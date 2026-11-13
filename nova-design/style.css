@@ -159,3 +159,6 @@ header .brand{display:flex;align-items:center;gap:4px;white-space:nowrap;font-si
 }
 @media(max-width:760px) and (max-height:540px){#editorView .workspace-head{display:none}#editorView aside{max-height:72dvh}#editorView .canvas-wrap{padding:5px 8px 45px!important}}
 @media(prefers-reduced-motion:reduce){#editorView aside{transition:none!important}}
+
+/* NOVA Design 3.1 image controls */
+.nova-image-editor{border-top:1px solid #e8eaee;margin-top:18px;padding-top:16px}.nova-image-editor h4{margin:0 0 7px;font-size:15px}.nova-image-presets{display:flex;gap:7px;overflow-x:auto;padding:4px 0 12px;scrollbar-width:none}.nova-image-presets button{flex:0 0 auto;font-size:11px;padding:8px 10px;border-radius:9px}.nova-image-control{display:grid!important;grid-template-columns:1fr auto;align-items:center;gap:8px;margin:12px 0!important;font-size:12px}.nova-image-control output{font-variant-numeric:tabular-nums;color:#666d76}.nova-image-control input[type=range]{grid-column:1/-1;width:100%;accent-color:#252a33;padding:0;border:0;min-height:28px}.nova-image-reset{width:100%;margin-top:10px;font-size:12px}.nova-image-sliders{padding:3px 0}@media(max-width:760px){.nova-image-presets button{min-height:42px}.nova-image-control input[type=range]{min-height:38px}}
