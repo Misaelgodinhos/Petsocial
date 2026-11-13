@@ -17,3 +17,19 @@
 @media(max-width:560px){.top{height:78px;padding:10px 19px}.brand{font-size:23px}.mark{width:39px;height:39px}.mark .ui-icon{width:39px;height:39px}#content{padding:12px 19px 110px;min-height:calc(100dvh - 78px)}.home-intro{margin:13px 0 24px}.home-intro h1{font-size:29px}.minimal-shortcuts{gap:8px;margin:24px 0 28px}.minimal-shortcuts button{min-height:93px;font-size:12px;border-radius:16px}.minimal-shortcuts .ui-icon{width:27px;height:27px}.daily-minimal{padding:16px 17px}.daily-heading h2{font-size:18px}.daily-minimal>p{font-size:15px}.section-heading h2{font-size:19px}.reader-topbar{height:72px;margin:0 -19px;padding:0 12px;gap:6px}.reader-topbar select{max-width:110px;padding:8px 5px;font-size:13px}.reader-version select{max-width:65px}.reader-title{padding-top:25px}.reader-title h1{font-size:33px}.reader-title .sub{font-size:17px}.verse{padding:9px 6px}.reader-settings{top:72px}.reader-settings-actions{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:360px){.top-actions{gap:3px}.minimal-shortcuts{gap:5px}.minimal-shortcuts button{font-size:11px}.reader-topbar #readerMenu{font-size:20px}.reader-topbar select{max-width:94px}.verse-toolbar-actions button{min-width:30px}.verse-toolbar-actions .ui-icon{width:17px;height:17px}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+
+/* Leitor avançado 11.0 — preferências e acessibilidade */
+.reader-progress{font-size:11px;letter-spacing:.01em;color:var(--secondary);margin:0 0 16px}
+.verses{width:100%;margin-left:auto;margin-right:auto}
+.verse{transition:background-color .15s ease}
+.reader-settings-actions{grid-template-columns:repeat(3,minmax(0,1fr))}
+.reader-settings-actions button{min-height:43px;line-height:1.25;text-align:center}
+.exit-focus{display:none;position:sticky;top:10px;z-index:40;margin:8px auto 0;padding:10px 16px;border:1px solid var(--line);border-radius:99px;background:var(--panel);color:var(--ink);box-shadow:var(--shadow);font-size:12px;font-weight:700}
+.focus-reading .exit-focus:not([hidden]){display:block}
+.focus-reading .reader-settings{display:none}
+.focus-reading .reader-progress{display:none}
+.focus-reading .verses{margin-top:35px!important}
+.focus-reading .verse{padding-top:13px;padding-bottom:13px}
+.verse-toolbar{position:fixed;max-height:min(70dvh,420px);overflow:auto}
+@media(max-width:560px){.reader-settings-actions{grid-template-columns:repeat(2,minmax(0,1fr))}.reader-progress{margin-bottom:10px}.focus-reading .verses{margin-top:25px!important}}
+@media(prefers-reduced-motion:reduce){.verse{transition:none}}
