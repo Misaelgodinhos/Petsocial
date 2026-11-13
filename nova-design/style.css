@@ -165,3 +165,70 @@ header .brand{display:flex;align-items:center;gap:4px;white-space:nowrap;font-si
 
 /* NOVA Design 3.2 — image finishing tools */
 .nova-image-advanced{border-top:1px solid #e8eaed;margin-top:18px;padding-top:16px}.nova-image-advanced h4{font-size:14px;margin:0 0 6px}.nova-image-crop,.nova-image-finishes{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px 12px;margin:12px 0}.nova-image-crop label,.nova-image-finishes label{display:flex;flex-direction:column;gap:6px;font-size:11px;color:#525966;min-width:0}.nova-image-crop input[type=range],.nova-image-finishes input[type=range]{width:100%;accent-color:#242832}.nova-image-crop output,.nova-image-finishes output{font-size:11px;color:#777}.nova-image-finishes input[type=color]{width:100%;height:38px;border:1px solid #e7e9ed;border-radius:9px}.nova-image-compare{width:100%;min-height:44px;border:1px solid #d7dbe2;border-radius:12px;background:#f6f7f9;font-weight:600;touch-action:none;user-select:none}.nova-image-compare:active{background:#e6e8ee}@media(max-width:760px){.nova-image-crop,.nova-image-finishes{gap:12px}.nova-image-crop input[type=range],.nova-image-finishes input[type=range]{min-height:32px}}
+
+/* NOVA Design 3.3 — Dark Luxury visual system */
+:root{color-scheme:dark;--nova-bg:#090b0e;--nova-surface:#12151a;--nova-surface-2:#1a1e24;--nova-elevated:#222730;--nova-border:#303640;--nova-text:#f2f1ee;--nova-muted:#9da3ad;--nova-accent:#d7b979;--nova-accent-strong:#f1d69a}
+html,body{background:var(--nova-bg)!important;color:var(--nova-text)!important}
+body{font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif!important}
+header{background:#111419!important;border-bottom:1px solid #30343c!important;color:var(--nova-text)!important;box-shadow:0 4px 30px #0004!important}
+header .brand{color:#f5f3ee!important;font-weight:650;letter-spacing:-.5px}
+header .brand b{color:var(--nova-accent)!important;font-weight:600}
+header .mark{background:linear-gradient(135deg,#ead4a2,#a47c39)!important;color:#111419!important;border:1px solid #e5c78c!important;border-radius:10px!important}
+header input,#projectName{background:#1b1f26!important;border:1px solid #343a45!important;color:#f3f2ef!important;border-radius:11px!important}
+button{transition:background .18s ease,border-color .18s ease,transform .18s ease}
+button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:2px solid var(--nova-accent)!important;outline-offset:2px}
+header button,.topactions button,#homeBtn{background:#20242b!important;border:1px solid #343941!important;color:#e7e8e8!important;border-radius:11px!important}
+header button:hover,.topactions button:hover{background:#2d323b!important}
+header .primary,#export,.primary,#dashNew{background:linear-gradient(135deg,#ead3a0,#c39c55)!important;color:#15130f!important;border:1px solid #e3c487!important;font-weight:750!important;box-shadow:0 3px 18px #c49a4026!important}
+#editorView{background:#0c0e12!important;color:#e9e9e7!important}
+#editorView nav{background:#111419!important;border-right:1px solid #2b3039!important;border-top-color:#2b3039!important;box-shadow:none!important}
+#editorView nav button{background:transparent!important;color:#aab0ba!important;border:1px solid transparent!important;border-radius:13px!important}
+#editorView nav button:hover{background:#242930!important;color:#fff!important}
+#editorView nav button.active{background:#2a2925!important;border-color:#7b6540!important;color:#e8cb91!important}
+#editorView nav button.active small{color:#e8cb91!important}
+#editorView aside{background:#15181e!important;color:#f2f0eb!important;border-color:#30343c!important}
+#editorView aside .mobile-panel-toggle{background:#191d23!important;color:#d9c08a!important;border-color:#383b40!important}
+#editorView .panel,#toolPanel{background:#15181e!important;color:#e9e8e5!important}
+#editorView .workspace{background:#0c0e12!important;color:#e9e9e7!important}
+#editorView .workspace-head,#editorView .workspace-foot{background:#111419!important;color:#aeb3bb!important;border-color:#292e37!important}
+#editorView .workspace-title{color:#e8e7e3!important}
+#editorView .workspace-dot{background:#d8b875!important;box-shadow:0 0 0 4px #d8b87519!important}
+#editorView #status,#pageInfo,#zoomLabel{color:#c2c5ca!important}
+#editorView .canvas-wrap{background-color:#0d1015!important;background-image:radial-gradient(#3a404b 0.75px,transparent .75px)!important;background-size:19px 19px!important}
+#editorView canvas{box-shadow:0 20px 65px #000a,0 0 0 1px #424650!important;border-radius:2px!important}
+#editorView .properties,#propertiesPanel{background:#161a20!important;color:#eceae6!important;border-color:#303640!important;box-shadow:-8px 0 32px #0004!important}
+.properties-heading{background:#181c22!important;color:#f1efe9!important;border-bottom:1px solid #303640!important}
+#editorView h1,#editorView h2,#editorView h3,#editorView h4{color:#f1eee7!important}
+#editorView label,#editorView p,#editorView small{color:#b8bec7}
+#editorView input:not([type=color]):not([type=range]),#editorView select,#editorView textarea,#editorView .panel input,#editorView .panel select{background:#222730!important;border:1px solid #3b424e!important;color:#f1f0ed!important;border-radius:10px!important}
+#editorView input::placeholder,#editorView textarea::placeholder{color:#8d949e!important}
+#editorView button:not(.primary):not(.active){background:#242932;color:#e7e7e5;border:1px solid #383e48;border-radius:10px}
+#editorView button:not(.primary):not(.active):hover{background:#303741;border-color:#565d66}
+#editorView button.danger{color:#ffaaa7!important;border-color:#704342!important}
+#editorView .nova-context-bar{background:#1c2027!important;border:1px solid #5c4b32!important;box-shadow:0 10px 32px #000a!important;color:#f3f0e8!important;backdrop-filter:blur(16px)}
+#editorView .nova-context-bar button{background:#2b3038!important;color:#eeeae1!important;border:1px solid #414650!important}
+#editorView .nova-context-bar button:hover{background:#3c414a!important}
+#editorView .nova-multi-bar{background:#181c22!important;border-color:#343a43!important;color:#e9e6de!important}
+#editorView .nova-image-editor,#editorView .nova-image-advanced{border-top-color:#3b414b!important}
+#editorView .nova-image-control output,#editorView .nova-image-crop output,#editorView .nova-image-finishes output{color:#d5b979!important}
+#editorView input[type=range]{accent-color:#d7b979!important}
+#editorView .nova-image-compare{background:#282c34!important;color:#f3eee4!important;border-color:#60523d!important}
+#editorView .nova-image-finishes input[type=color]{background:#222730!important;border-color:#424a55!important}
+#dashboard{background:#0d1014!important;color:#f1eee8!important}
+#dashboard h1,#dashboard h2,#dashboard h3{color:#f2eee6!important}
+#dashboard .dash-head,#dashboard .cloud-panel,#dashboard .project-card{background:#191d24!important;color:#e9e8e5!important;border-color:#343a44!important}
+#dashboard button{background:#262b34!important;color:#f0eee9!important;border:1px solid #3c434e!important;border-radius:11px}
+#dashboard input{background:#232832!important;color:#f2f0ed!important;border:1px solid #424955!important}
+#dashboard p,#dashboard .muted{color:#a9b0ba!important}
+#mobileProperties{background:#d5b778!important;color:#15130e!important;border:1px solid #e6cd96!important;border-radius:12px!important;font-weight:700!important}
+@media(max-width:760px){
+header{background:#12151a!important;box-shadow:0 3px 16px #0006!important}
+#editorView nav{background:#13171d!important;border-top:1px solid #353b45!important;box-shadow:0 -7px 24px #0006!important}
+#editorView nav button{color:#b5bac3!important}
+#editorView aside{background:#171b21!important;border:1px solid #363c46!important;box-shadow:0 -12px 42px #000a!important}
+#editorView aside .mobile-panel-toggle{background:#171b21!important;color:#e5c788!important}
+#editorView .canvas-wrap{background-color:#0c0f14!important}
+#editorView .workspace-head,#editorView .workspace-foot{background:#12161c!important}
+#editorView .properties{background:#171b21!important}
+}
+@media(prefers-reduced-motion:reduce){button{transition:none!important}}
