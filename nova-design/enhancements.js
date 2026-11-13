@@ -8,6 +8,16 @@ toggle.addEventListener('click',()=>side.classList.contains('properties-open')?s
 close.addEventListener('click',shut);
 document.addEventListener('keydown',e=>{if(e.key==='Escape')shut()});
 document.querySelectorAll('[data-tool]').forEach(b=>b.addEventListener('click',()=>{if(innerWidth<760)shut()}));
+const header=document.querySelector('header');
+new ResizeObserver(()=>document.documentElement.style.setProperty('--mobile-header-height',header.getBoundingClientRect().height+'px')).observe(header);
+document.querySelector('.workspace-foot').append(toggle);
+toggle.setAttribute('aria-controls','propertiesPanel');toggle.setAttribute('aria-expanded','false');
+const tray=document.querySelector('aside'),panel=$('toolPanel');
+const trayToggle=document.createElement('button');trayToggle.className='mobile-panel-toggle';trayToggle.type='button';trayToggle.setAttribute('aria-controls','toolPanel');tray.prepend(trayToggle);
+const updateTray=()=>{const collapsed=tray.classList.contains('panel-collapsed');const label=document.querySelector('nav button.active small')?.textContent||'Ferramentas';trayToggle.textContent=label+(collapsed?' · Mostrar ＋':' · Recolher −');trayToggle.setAttribute('aria-expanded',String(!collapsed))};
+trayToggle.onclick=()=>{tray.classList.toggle('panel-collapsed');updateTray()};
+document.querySelectorAll('[data-tool]').forEach(b=>b.addEventListener('click',()=>{tray.classList.remove('panel-collapsed');updateTray();panel.scrollTop=0;b.scrollIntoView({block:'nearest',inline:'nearest'})}));
+updateTray();
 const nav=document.querySelector('nav');nav.setAttribute('aria-label','Ferramentas de edição');
 const observer=new MutationObserver(()=>{const active=document.querySelector('nav button.active');if(active)active.setAttribute('aria-current','true');document.querySelectorAll('nav button:not(.active)[aria-current]').forEach(x=>x.removeAttribute('aria-current'))});
 observer.observe(nav,{subtree:true,attributes:true,attributeFilter:['class']});
