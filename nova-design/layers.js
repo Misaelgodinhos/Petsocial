@@ -24,20 +24,23 @@ const actions=document.createElement('div');actions.className='layer-card-action
 actions.append(button(o.hidden?'Mostrar':'Ocultar',()=>mutate(()=>{o.hidden=!o.hidden;if(o.hidden){multiSelected.delete(o.id);if(selected===o.id)selected=null}})));
 actions.append(button(o.locked?'Desbloquear':'Bloquear',()=>mutate(()=>{o.locked=!o.locked;multiSelected.clear();selected=null})));
 const move=step=>{
-// Move a grouped layer as a single contiguous stack, never split its members.
 const members=o.groupId?items.filter(x=>x.groupId===o.groupId):[o];
 if(members.some(x=>!isEditable(x)))return;
-const indexes=members.map(x=>items.indexOf(x));
-const edge=step>0?Math.max(...indexes):Math.min(...indexes);
-const neighbor=items[edge+step];
+const moving=new Set(members);
+const edge=step>0?Math.max(...members.map(x=>items.indexOf(x))):Math.min(...members.map(x=>items.indexOf(x)));
+let neighbor=items[edge+step];
+while(neighbor&&moving.has(neighbor)){const i=items.indexOf(neighbor)+step;neighbor=items[i]}
 if(!neighbor)return;
 const neighborMembers=neighbor.groupId?items.filter(x=>x.groupId===neighbor.groupId):[neighbor];
+const adjacent=new Set(neighborMembers);
 mutate(()=>{
-const moving=new Set(members),other=new Set(neighborMembers);
-const remaining=items.filter(x=>!moving.has(x)&&!other.has(x));
-const blocks=step>0?[...neighborMembers,...members]:[...members,...neighborMembers];
-const insertAt=items.slice(0,Math.min(edge,items.indexOf(neighbor))).filter(x=>!moving.has(x)&&!other.has(x)).length;
-remaining.splice(insertAt,0,...blocks);
+const original=items.slice();
+const blocks=original.filter(x=>moving.has(x));
+const neighbors=original.filter(x=>adjacent.has(x));
+const remaining=original.filter(x=>!moving.has(x)&&!adjacent.has(x));
+const anchor=Math.min(...neighbors.map(x=>original.indexOf(x)));
+const before=original.slice(0,anchor).filter(x=>!moving.has(x)&&!adjacent.has(x)).length;
+remaining.splice(before,0,...(step>0?[...neighbors,...blocks]:[...blocks,...neighbors]));
 items.splice(0,items.length,...remaining);
 });
 };
