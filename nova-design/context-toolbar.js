@@ -8,23 +8,24 @@ editor.querySelector('.canvas-wrap').append(bar);
 const label=bar.querySelector('.nova-context-type'),actions=bar.querySelector('.nova-context-actions');
 const typeNames={text:'Texto',image:'Imagem',rect:'Forma',circle:'Forma'};
 function button(text,fn,title){const b=document.createElement('button');b.type='button';b.textContent=text;b.title=title||text;b.onclick=fn;actions.append(b)}
+function openProperties(){const side=document.getElementById('propertiesPanel');if(!side?.classList.contains('properties-open'))document.getElementById('mobileProperties')?.click()}
 function mutate(fn){checkpoint();fn();changed();queueMicrotask(update)}
 function update(){
 const o=items.find(x=>x.id===selected&&!x.hidden),editable=o&&isEditable(o);
-bar.hidden=!editable;if(!editable)return;
+bar.hidden=!editable;if(!editable){actions.replaceChildren();return}
 label.textContent=typeNames[o.type]||'Elemento';actions.replaceChildren();
 if(o.type==='text'){
 button('−',()=>mutate(()=>o.size=Math.max(8,(Number(o.size)||40)-4)),'Diminuir fonte');
-button((o.size||40)+' px',()=>{document.getElementById('mobileProperties')?.click()},'Mais opções de texto');
+button((o.size||40)+' px',()=>{openProperties()},'Mais opções de texto');
 button('+',()=>mutate(()=>o.size=Math.min(300,(Number(o.size)||40)+4)),'Aumentar fonte');
 button('B',()=>mutate(()=>o.bold=!o.bold),'Negrito');
-button('Editar',()=>{document.getElementById('mobileProperties')?.click();document.querySelector('[data-prop="text"]')?.focus()},'Editar conteúdo');
+button('Editar',()=>window.NovaStudio?.editText?.(),'Editar conteúdo');
 }else if(o.type==='image'){
 button('−',()=>mutate(()=>o.opacity=Math.max(.1,Math.round(((o.opacity??1)-.1)*10)/10)),'Menos opacidade');
 button('＋',()=>mutate(()=>o.opacity=Math.min(1,Math.round(((o.opacity??1)+.1)*10)/10)),'Mais opacidade');
-button('Ajustar',()=>document.getElementById('mobileProperties')?.click(),'Editar imagem');
+button('Ajustar',()=>openProperties(),'Editar imagem');
 }else{
-button('Cor',()=>document.getElementById('mobileProperties')?.click(),'Alterar cor');
+button('Cor',()=>openProperties(),'Alterar cor');
 button('−',()=>mutate(()=>{o.w=Math.max(20,o.w*.9);o.h=Math.max(20,o.h*.9)}),'Diminuir forma');
 button('＋',()=>mutate(()=>{o.w*=1.1;o.h*=1.1}),'Aumentar forma');
 }
