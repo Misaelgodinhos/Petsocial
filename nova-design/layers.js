@@ -23,8 +23,25 @@ const info=document.createElement('small');info.textContent=[o.groupId?'Agrupado
 const actions=document.createElement('div');actions.className='layer-card-actions';
 actions.append(button(o.hidden?'Mostrar':'Ocultar',()=>mutate(()=>{o.hidden=!o.hidden;if(o.hidden){multiSelected.delete(o.id);if(selected===o.id)selected=null}})));
 actions.append(button(o.locked?'Desbloquear':'Bloquear',()=>mutate(()=>{o.locked=!o.locked;multiSelected.clear();selected=null})));
-const move=step=>{const i=items.indexOf(o),j=i+step;if(j<0||j>=items.length||!isEditable(o))return;mutate(()=>{[items[i],items[j]]=[items[j],items[i]]})};
-const up=button('↑',()=>move(1),items.indexOf(o)===items.length-1||!isEditable(o));up.setAttribute('aria-label','Subir camada '+label(o));const down=button('↓',()=>move(-1),items.indexOf(o)===0||!isEditable(o));down.setAttribute('aria-label','Descer camada '+label(o));actions.append(up,down);row.append(actions);p.append(row)
+const move=step=>{
+// Move a grouped layer as a single contiguous stack, never split its members.
+const members=o.groupId?items.filter(x=>x.groupId===o.groupId):[o];
+if(members.some(x=>!isEditable(x)))return;
+const indexes=members.map(x=>items.indexOf(x));
+const edge=step>0?Math.max(...indexes):Math.min(...indexes);
+const neighbor=items[edge+step];
+if(!neighbor)return;
+const neighborMembers=neighbor.groupId?items.filter(x=>x.groupId===neighbor.groupId):[neighbor];
+mutate(()=>{
+const moving=new Set(members),other=new Set(neighborMembers);
+const remaining=items.filter(x=>!moving.has(x)&&!other.has(x));
+const blocks=step>0?[...neighborMembers,...members]:[...members,...neighborMembers];
+const insertAt=items.slice(0,Math.min(edge,items.indexOf(neighbor))).filter(x=>!moving.has(x)&&!other.has(x)).length;
+remaining.splice(insertAt,0,...blocks);
+items.splice(0,items.length,...remaining);
+});
+};
+const up=button('↑',()=>move(1),(o.groupId?items.filter(x=>x.groupId===o.groupId).some(x=>items.indexOf(x)===items.length-1):items.indexOf(o)===items.length-1)||!isEditable(o));up.setAttribute('aria-label','Subir camada '+label(o));const down=button('↓',()=>move(-1),(o.groupId?items.filter(x=>x.groupId===o.groupId).some(x=>items.indexOf(x)===0):items.indexOf(o)===0)||!isEditable(o));down.setAttribute('aria-label','Descer camada '+label(o));actions.append(up,down);row.append(actions);p.append(row)
 }}
 window.NovaLayers={render};if(tool==='layers')render();
 })();
