@@ -232,3 +232,31 @@ header{background:#12151a!important;box-shadow:0 3px 16px #0006!important}
 #editorView .properties{background:#171b21!important}
 }
 @media(prefers-reduced-motion:reduce){button{transition:none!important}}
+
+/* NOVA Design 3.4 — luxury studio layout based on visual concept */
+@media(min-width:761px){
+#editorView{display:grid!important;grid-template-columns:82px minmax(260px,340px) minmax(0,1fr) minmax(280px,340px)!important;grid-template-rows:minmax(0,1fr) 86px!important;height:calc(100dvh - 78px)!important;min-height:520px!important;gap:0!important}
+#editorView nav{grid-column:1!important;grid-row:1!important;display:flex!important;flex-direction:column!important;gap:8px!important;padding:18px 8px!important;overflow-y:auto;min-width:0!important;width:auto!important}
+#editorView nav button{width:100%!important;min-height:64px!important;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;font-size:22px!important}
+#editorView nav small{font-size:11px!important}
+#editorView aside{grid-column:2!important;grid-row:1!important;position:relative!important;display:flex!important;flex-direction:column;min-width:0!important;width:auto!important;height:auto!important;max-height:none!important;overflow:auto!important;border-right:1px solid #343943!important}
+#editorView aside #toolPanel{overflow:auto;flex:1;padding:18px!important}
+#editorView .workspace{grid-column:3!important;grid-row:1!important;min-width:0;min-height:0;display:flex;flex-direction:column;overflow:hidden}
+#editorView .canvas-wrap{flex:1;min-height:0;display:flex;align-items:center;justify-content:center;overflow:hidden;padding:20px!important}
+#editorView .canvas-wrap canvas{width:min(90cqw,90cqh,100%)!important;height:auto!important;max-height:100%;object-fit:contain}
+#editorView .properties{grid-column:4!important;grid-row:1!important;position:relative!important;display:flex!important;flex-direction:column;min-width:0!important;width:auto!important;max-width:none!important;height:auto!important;transform:none!important;overflow:hidden!important;border-left:1px solid #343943!important}
+#editorView #propertiesBody{flex:1;min-height:0;overflow-y:auto;padding:18px!important}
+#editorView .properties-heading{padding:15px 18px!important}
+#editorView .workspace-foot{min-height:44px}
+#editorView::after{content:'NOVA STUDIO  ·  DESIGN WORKSPACE';grid-column:1/-1;grid-row:2;background:#111419;border-top:1px solid #343943;color:#8f949d;letter-spacing:2px;font-size:10px;display:flex;align-items:center;justify-content:center;pointer-events:none}
+#editorView .nova-context-bar{max-width:calc(100% - 30px)}
+}
+@media(min-width:761px) and (max-width:1100px){
+#editorView{grid-template-columns:70px minmax(190px,240px) minmax(0,1fr) minmax(230px,270px)!important}
+#editorView nav button{min-height:55px!important}
+}
+@media(max-width:760px){
+#editorView nav{background:#11151b!important}
+#editorView .canvas-wrap{background-image:radial-gradient(#333946 0.7px,transparent 0.7px)!important;background-size:18px 18px!important}
+#editorView .workspace canvas{border:1px solid #b89a5a!important}
+}
