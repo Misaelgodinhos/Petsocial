@@ -260,3 +260,22 @@ header{background:#12151a!important;box-shadow:0 3px 16px #0006!important}
 #editorView .canvas-wrap{background-image:radial-gradient(#333946 0.7px,transparent 0.7px)!important;background-size:18px 18px!important}
 #editorView .workspace canvas{border:1px solid #b89a5a!important}
 }
+
+/* NOVA Design 3.5 — formats and responsive document sizing */
+#editorView .canvas-wrap{container-type:size!important}
+#editorView .canvas-wrap canvas{width:auto!important;height:auto!important;max-width:94%!important;max-height:94%!important;object-fit:contain!important}
+.nova-size-bar{display:flex;align-items:center;margin-left:auto}
+.nova-size-open{white-space:nowrap;background:#29251c!important;border:1px solid #8d7446!important;color:#e8c989!important;border-radius:10px;padding:7px 11px;font-size:12px;font-weight:650}
+.nova-size-dialog{width:min(560px,calc(100vw - 24px));max-height:min(88dvh,760px);overflow-y:auto;background:#171b21;color:#f4f0e9;border:1px solid #65543a;border-radius:20px;padding:22px;box-shadow:0 30px 90px #000c}
+.nova-size-dialog::backdrop{background:#000b;backdrop-filter:blur(5px)}
+.nova-size-title{display:flex;justify-content:space-between;align-items:center;gap:12px}
+.nova-size-title h3{margin:0;font-size:20px}.nova-size-title button{background:#30343c;color:#fff;border:1px solid #484e59;border-radius:9px;padding:8px 12px}
+.nova-size-dialog p{color:#aeb5bf;font-size:13px}
+.nova-size-presets{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px;margin:18px 0}
+.nova-size-presets button{display:flex;flex-direction:column;text-align:left;gap:6px;min-height:65px;padding:12px;border-radius:12px;background:#242932;border:1px solid #3d4550;color:#f3f0e8}
+.nova-size-presets button:hover{border-color:#d7b979;background:#302c25}
+.nova-size-presets strong{font-size:13px}.nova-size-presets small{font-size:11px;color:#b5bbc4}
+.nova-size-custom{display:grid;grid-template-columns:1fr 1fr;gap:12px}.nova-size-custom label{font-size:12px;color:#c4c8cf}
+.nova-size-custom input{display:block;width:100%;box-sizing:border-box;margin-top:6px;padding:12px;border-radius:10px;background:#262b33;border:1px solid #444c58;color:#fff}
+.nova-size-apply{width:100%;margin-top:15px;padding:13px;border-radius:11px;background:#d7b979;color:#19150d;border:0;font-weight:750}
+@media(max-width:760px){.nova-size-open{padding:5px 7px;font-size:10px}.nova-size-dialog{padding:15px}.nova-size-presets{gap:7px}.nova-size-presets button{padding:9px}.nova-size-presets strong{font-size:11px}#editorView .workspace .canvas-wrap canvas{width:auto!important;height:auto!important;max-width:96%!important;max-height:96%!important}}
