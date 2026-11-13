@@ -31,3 +31,13 @@
 .offline-card #offlineStatus{grid-column:1/-1}
 .offline-button{border:1px solid var(--border);background:var(--accent);color:var(--surface);border-radius:9px;padding:10px 12px;font-size:12px}
 @media(max-width:370px){.offline-card{grid-template-columns:1fr}.offline-button{justify-self:start}.verse-toolbar-actions button{font-size:11px;padding:7px 8px}}
+
+/* 7.2 — barra de ferramentas realmente flutuante, sem modal */
+.verse-toolbar{position:fixed;z-index:60;width:max-content;max-width:calc(100vw - 20px);margin:0;padding:9px 10px;border:1px solid var(--border);border-radius:13px;background:var(--surface);box-shadow:0 10px 35px #0000001a;animation:float-in .15s ease-out}
+.verse-toolbar-title{font-size:10px;margin:0 0 6px;color:var(--muted);text-align:center}
+.verse-toolbar-actions{display:flex;flex-wrap:nowrap;gap:5px}
+.verse-toolbar-actions button{white-space:nowrap;min-height:34px;padding:7px 8px;font-size:11px}
+.verse-toolbar #verseEditor:not(:empty){width:min(360px,calc(100vw - 44px))}
+.verse-selected{background:var(--border);border-radius:7px}
+@keyframes float-in{from{opacity:0;transform:translateY(5px)}to{opacity:1;transform:translateY(0)}}
+@media(max-width:390px){.verse-toolbar{padding:8px 6px}.verse-toolbar-actions{gap:3px}.verse-toolbar-actions button{font-size:10px;padding:7px 6px}}
