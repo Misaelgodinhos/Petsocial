@@ -40,5 +40,6 @@ jobs:
           git add nova-biblia/data/
           if ! git diff --cached --quiet; then
             git commit -m 'Inclui texto integral da Bíblia Livre BLIVRE 2018'
+            git pull --rebase origin main
             git push
           fi
