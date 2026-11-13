@@ -14,3 +14,20 @@
 .focus-reading .verses{margin-top:28px}
 @media(min-width:800px){.tabs{max-width:490px;left:50%;right:auto;transform:translateX(-50%);bottom:14px;border:1px solid var(--border);border-radius:15px;box-shadow:0 8px 28px #0000000b}}
 @media(max-width:360px){.reading-tools #focusMode{margin-left:0}.reading-tools{gap:6px}.reading-tools button{padding:8px 10px}}
+
+/* Cordeirinho 7.1 — seleção contextual acessível */
+.verse-toolbar{margin:4px 0 18px;padding:12px;border:1px solid var(--border);border-radius:12px;background:var(--surface);box-shadow:0 7px 22px #0000000b;font-family:var(--sans)}
+.verse-toolbar-title{font-size:11px;font-weight:750;letter-spacing:.4px;margin-bottom:10px}
+.verse-toolbar-actions{display:flex;gap:7px;flex-wrap:wrap}
+.verse-toolbar-actions button{background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:8px 10px;font-size:12px;min-height:38px}
+.verse-toolbar-actions button:last-child{margin-left:auto;font-size:18px;line-height:1}
+#verseEditor{margin-top:8px}
+#verseEditor:empty{display:none}
+#verseEditor label{display:block;font-size:12px;font-weight:650;margin:12px 0 6px}
+#verseEditor textarea{display:block;width:100%;resize:vertical;background:var(--bg);color:var(--text);border:1px solid var(--border);border-radius:9px;padding:11px;min-height:85px}
+.offline-card{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:8px 12px;align-items:center;padding:18px;border:1px solid var(--border);border-radius:13px;background:var(--surface);margin:16px 0}
+.offline-card strong{font-size:14px}
+.offline-card p{margin:5px 0 0}
+.offline-card #offlineStatus{grid-column:1/-1}
+.offline-button{border:1px solid var(--border);background:var(--accent);color:var(--surface);border-radius:9px;padding:10px 12px;font-size:12px}
+@media(max-width:370px){.offline-card{grid-template-columns:1fr}.offline-button{justify-self:start}.verse-toolbar-actions button{font-size:11px;padding:7px 8px}}
