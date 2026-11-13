@@ -1,6 +1,13 @@
-# NOVA Design 1.8
+# NOVA Design 1.9
 
 Editor local HTML/CSS/JavaScript com painel de projetos, templates, páginas, formas, texto, imagens, camadas, exportação e integração opcional Supabase.
+
+## Novidades 1.9
+- Seleção por caixas de marcação no painel Camadas, sem precisar de Shift.
+- Agrupar/desagrupar, ordenar, ocultar e bloquear camadas.
+- Bloqueio protege o grupo inteiro contra edição e movimento.
+- Visibilidade e bloqueio ficam salvos no documento, localmente ou na nuvem.
+- Campo de texto nas propriedades aceita múltiplas linhas.
 
 ## Novidades 1.8
 - Edição de texto com múltiplas linhas em janela integrada, com Aplicar e Cancelar.

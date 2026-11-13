@@ -86,3 +86,16 @@ main{height:calc(100dvh - 72px);grid-template-columns:78px 282px minmax(0,1fr) 2
 .studio-dialog .text-count{font-size:11px;text-align:right}.dialog-actions{display:flex;justify-content:flex-end;gap:8px;margin-top:22px}.dialog-actions button{min-height:44px}
 button:disabled{opacity:.55;cursor:wait}
 @media(max-width:760px){.selection-actions{padding:5px 8px;min-height:44px}.selection-actions>span{display:none}.selection-actions>div{width:100%;justify-content:flex-start}.selection-actions button{min-height:36px;font-size:11px;flex:1;padding:7px}.studio-dialog{padding:18px;border-radius:16px}.dialog-actions button{flex:1}.dialog-heading h2{font-size:20px}}
+
+/* NOVA Design 1.9: accessible layer controls */
+.layer-controls{display:flex;gap:5px;flex-wrap:wrap;margin:12px 0}
+.panel .layer-controls button{width:auto;min-height:40px;margin:0;font-size:11px;padding:8px}
+.layer-card{border:1px solid var(--line);border-radius:12px;padding:10px;margin:8px 0;background:#fff}
+.layer-card.is-selected{border-color:#8b78eb;background:#f6f3ff}.layer-card.is-hidden{background:#f4f4f7}
+.layer-card-top{display:flex;gap:8px;align-items:center;min-width:0}.panel .layer-card input[type=checkbox]{width:22px;height:22px;flex:none;accent-color:var(--accent);cursor:pointer}
+.panel .layer-card .layer-name{flex:1;width:0;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin:0;border:0;background:transparent;padding:8px 3px;font-size:12px}
+.layer-card small{display:block;color:#797485;font-size:10px;margin:3px 0 6px}.layer-card small:empty{display:none}
+.layer-card-actions{display:flex;gap:5px}.panel .layer-card-actions button{width:auto;margin:0;padding:7px 6px;min-height:36px;font-size:10px;flex:1}
+.panel button:disabled{cursor:not-allowed;opacity:.45}
+.properties textarea{width:100%;padding:10px;border:1px solid var(--line);border-radius:10px;font:inherit;resize:vertical;min-height:85px;line-height:1.5}
+@media(max-width:760px){.panel .layer-controls button{min-height:44px;flex:1}.layer-card{padding:8px}.panel .layer-card-actions button{min-height:40px;font-size:11px}.panel .layer-card .layer-name{min-height:40px}.properties textarea{font-size:16px}}
