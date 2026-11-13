@@ -17,7 +17,7 @@ document.querySelectorAll('nav [data-tool]').forEach(b=>b.addEventListener('clic
 let start=null,swiped=false;
 toggle.addEventListener('touchstart',e=>{start=e.touches[0]?.clientY??null;swiped=false},{passive:true});
 toggle.addEventListener('touchend',e=>{if(start===null)return;const delta=(e.changedTouches[0]?.clientY??start)-start;start=null;if(Math.abs(delta)>35){swiped=true;expanded=delta<0;render()}},{passive:true});
-toggle.addEventListener('click',()=>{if(swiped){swiped=false;queueMicrotask(render)}},true);
+toggle.addEventListener('click',e=>{if(swiped){swiped=false;e.preventDefault();e.stopImmediatePropagation();queueMicrotask(render)}},true);
 mobile.addEventListener('change',()=>{expanded=false;render()});
 expanded=false;render();
 })();
