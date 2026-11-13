@@ -14,9 +14,10 @@ toggle.textContent=expanded?'⌄ '+name+' · Recolher':'⌃ '+name+' · Abrir fe
 }
 toggle.addEventListener('click',()=>{expanded=!tray.classList.contains('panel-collapsed');queueMicrotask(render)});
 document.querySelectorAll('nav [data-tool]').forEach(b=>b.addEventListener('click',()=>{expanded=true;queueMicrotask(render)}));
-let start=null;
-toggle.addEventListener('touchstart',e=>{start=e.touches[0]?.clientY??null},{passive:true});
-toggle.addEventListener('touchend',e=>{if(start===null)return;const delta=(e.changedTouches[0]?.clientY??start)-start;start=null;if(Math.abs(delta)>35){expanded=delta<0;render()}},{passive:true});
+let start=null,swiped=false;
+toggle.addEventListener('touchstart',e=>{start=e.touches[0]?.clientY??null;swiped=false},{passive:true});
+toggle.addEventListener('touchend',e=>{if(start===null)return;const delta=(e.changedTouches[0]?.clientY??start)-start;start=null;if(Math.abs(delta)>35){swiped=true;expanded=delta<0;render()}},{passive:true});
+toggle.addEventListener('click',()=>{if(swiped){swiped=false;queueMicrotask(render)}},true);
 mobile.addEventListener('change',()=>{expanded=false;render()});
 expanded=false;render();
 })();
