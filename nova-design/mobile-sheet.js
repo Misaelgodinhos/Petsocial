@@ -12,7 +12,7 @@ toggle.setAttribute('aria-expanded',String(expanded));
 const name=document.querySelector('nav button.active small')?.textContent||'Ferramentas';
 toggle.textContent=expanded?'⌄ '+name+' · Recolher':'⌃ '+name+' · Abrir ferramentas';
 }
-toggle.addEventListener('click',()=>{expanded=!tray.classList.contains('panel-collapsed');expanded=!expanded;queueMicrotask(render)});
+toggle.addEventListener('click',()=>{expanded=!tray.classList.contains('panel-collapsed');queueMicrotask(render)});
 document.querySelectorAll('nav [data-tool]').forEach(b=>b.addEventListener('click',()=>{expanded=true;queueMicrotask(render)}));
 let start=null;
 toggle.addEventListener('touchstart',e=>{start=e.touches[0]?.clientY??null},{passive:true});
