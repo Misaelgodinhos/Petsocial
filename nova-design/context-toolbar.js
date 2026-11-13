@@ -30,6 +30,7 @@ button('−',()=>mutate(()=>{o.w=Math.max(20,o.w*.9);o.h=Math.max(20,o.h*.9)}),'
 button('＋',()=>mutate(()=>{o.w*=1.1;o.h*=1.1}),'Aumentar forma');
 }
 button('Duplicar',()=>mutate(()=>{const copy=JSON.parse(JSON.stringify(o));copy.id=uid();delete copy.groupId;copy.x+=25;copy.y+=25;items.push(copy);if(copy.type==='image')loadImage(copy);selected=copy.id}),'Duplicar elemento');
+button('Concluir',()=>{selected=null;multiSelected.clear();draw();properties();update()},'Fechar controles de edição');
 button('Excluir',()=>{if(!confirm('Excluir este elemento? Você pode desfazer usando o botão ↶.'))return;mutate(()=>{items=items.filter(x=>x.id!==o.id);multiSelected.delete(o.id);selected=null})},'Excluir elemento selecionado');
 }
 document.addEventListener('nova:selection',()=>queueMicrotask(update));
