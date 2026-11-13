@@ -1,23 +1,24 @@
-/* NOVA Design 2.3 — mobile bottom sheet */
+/* NOVA Design 3.0 — mobile workspace controller */
 (()=>{'use strict';
-const tray=document.querySelector('#editorView aside'),toggle=tray?.querySelector('.mobile-panel-toggle'),panel=document.getElementById('toolPanel');
-if(!tray||!toggle||!panel)return;
-const mobile=window.matchMedia('(max-width:760px)');
-let expanded=false;
-function render(){
-if(!mobile.matches){tray.classList.remove('nova-sheet-open');return}
-tray.classList.toggle('nova-sheet-open',expanded);
-tray.classList.toggle('panel-collapsed',!expanded);
-toggle.setAttribute('aria-expanded',String(expanded));
-const name=document.querySelector('nav button.active small')?.textContent||'Ferramentas';
-toggle.textContent=expanded?'⌄ '+name+' · Recolher':'⌃ '+name+' · Abrir ferramentas';
+const editor=document.getElementById('editorView'),tray=editor?.querySelector('aside'),handle=tray?.querySelector('.mobile-panel-toggle'),panel=document.getElementById('toolPanel'),nav=editor?.querySelector('nav');
+if(!editor||!tray||!handle||!panel||!nav)return;
+const mq=matchMedia('(max-width:760px)');
+let open=false,startY=null,gesture=false;
+function label(){return nav.querySelector('button.active small')?.textContent?.trim()||'Ferramentas'}
+function sync(){
+if(!mq.matches){tray.classList.remove('nova-sheet-open','panel-collapsed');return}
+tray.classList.toggle('nova-sheet-open',open);
+tray.classList.toggle('panel-collapsed',!open);
+handle.textContent=open?'⌄  '+label()+' · Fechar':'⌃  '+label()+' · Ferramentas';
+handle.setAttribute('aria-expanded',String(open));
+handle.setAttribute('aria-label',open?'Recolher painel de '+label():'Expandir painel de '+label());
 }
-toggle.addEventListener('click',()=>{expanded=!tray.classList.contains('panel-collapsed');queueMicrotask(render)});
-document.querySelectorAll('nav [data-tool]').forEach(b=>b.addEventListener('click',()=>{expanded=true;queueMicrotask(render)}));
-let start=null,swiped=false;
-toggle.addEventListener('touchstart',e=>{start=e.touches[0]?.clientY??null;swiped=false},{passive:true});
-toggle.addEventListener('touchend',e=>{if(start===null)return;const delta=(e.changedTouches[0]?.clientY??start)-start;start=null;if(Math.abs(delta)>35){swiped=true;expanded=delta<0;render()}},{passive:true});
-toggle.addEventListener('click',e=>{if(swiped){swiped=false;e.preventDefault();e.stopImmediatePropagation();queueMicrotask(render)}},true);
-mobile.addEventListener('change',()=>{expanded=false;render()});
-expanded=false;render();
+handle.addEventListener('click',e=>{if(!mq.matches)return;e.preventDefault();e.stopImmediatePropagation();if(gesture){gesture=false;return}open=!open;sync()},true);
+handle.addEventListener('touchstart',e=>{startY=e.touches[0]?.clientY??null;gesture=false},{passive:true});
+handle.addEventListener('touchend',e=>{if(startY===null)return;const d=(e.changedTouches[0]?.clientY??startY)-startY;startY=null;if(Math.abs(d)>35){gesture=true;open=d<0;sync()}},{passive:true});
+nav.querySelectorAll('[data-tool]').forEach(button=>button.addEventListener('click',()=>{if(!mq.matches)return;open=true;queueMicrotask(sync);panel.scrollTop=0}));
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&open){open=false;sync()}});
+mq.addEventListener('change',()=>{open=false;sync()});
+const canvas=editor.querySelector('canvas');canvas?.addEventListener('pointerdown',()=>{if(open){open=false;sync()}},{passive:true});
+sync();
 })();
