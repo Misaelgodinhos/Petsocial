@@ -1,0 +1,44 @@
+name: Publicar Bíblia Livre no Cordeirinho
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - '.github/workflows/cordeirinho-biblia.yml'
+permissions:
+  contents: write
+jobs:
+  importar:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Baixar pacote oficial Bíblia Livre
+        run: |
+          curl --fail --location --retry 3 'https://ebible.org/Scriptures/porbr2018_vpl.zip' -o /tmp/biblia.zip
+          unzip -p /tmp/biblia.zip porbr2018_vpl.txt > /tmp/biblia.txt
+      - name: Converter para JSON por livro
+        run: |
+          python3 - <<'PY'
+          import re,json,pathlib,collections
+          codes='GEN EXO LEV NUM DEU JOS JDG RUT 1SA 2SA 1KI 2KI EZR NEH EST JOB PSA PRO ECC SOL ISA JER LAM EZE DAN HOS JOE AMO OBA JON MIC NAH HAB ZEP HAG ZEC MAL MAT MAR LUK JOH ACT ROM 1CO 2CO GAL EPH PHI COL 1TH 2TH 1TI 2TI TIT PHM HEB JAM 1PE 2PE 1JO 2JO 3JO JUD REV'.split()
+          data={c:{} for c in codes}
+          for line in pathlib.Path('/tmp/biblia.txt').read_text(encoding='utf-8-sig').splitlines():
+              m=re.match(r'^(\S+) (\d+):(\d+) (.+)$',line)
+              if not m: continue
+              code,chapter,verse,body=m.groups()
+              if code not in data: raise ValueError('Livro desconhecido: '+code)
+              data[code].setdefault(chapter,{})[verse]=body
+          if len([x for x in data.values() if x])!=66 or sum(len(ch) for x in data.values() for ch in x.values())<31000:
+              raise ValueError('Arquivo bíblico incompleto')
+          out=pathlib.Path('nova-biblia/data');out.mkdir(parents=True,exist_ok=True)
+          for code,chapters in data.items():
+              (out/(code+'.json')).write_text(json.dumps(chapters,ensure_ascii=False,separators=(',',':')),encoding='utf-8')
+          PY
+      - name: Publicar arquivos bíblicos
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add nova-biblia/data/
+          if ! git diff --cached --quiet; then
+            git commit -m 'Inclui texto integral da Bíblia Livre BLIVRE 2018'
+            git push
+          fi
