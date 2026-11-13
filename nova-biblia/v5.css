@@ -33,3 +33,16 @@
 .verse-toolbar{position:fixed;max-height:min(70dvh,420px);overflow:auto}
 @media(max-width:560px){.reader-settings-actions{grid-template-columns:repeat(2,minmax(0,1fr))}.reader-progress{margin-bottom:10px}.focus-reading .verses{margin-top:25px!important}}
 @media(prefers-reduced-motion:reduce){.verse{transition:none}}
+
+/* Auditoria 11.1 — controles, backup e navegação acessíveis */
+.top .round{display:grid;place-items:center;width:36px;height:36px;border:0;background:transparent}
+.top .round .ui-icon{width:21px;height:21px}
+.top-actions{gap:6px}
+.backup-tools{display:grid;grid-template-columns:1fr auto;align-items:center;gap:9px 12px;margin:16px 0;padding:17px;border:1px solid var(--line);border-radius:14px;background:var(--panel)}
+.backup-tools strong{font-size:14px}.backup-tools p{margin:5px 0 0}
+.backup-tools .offline-button{grid-column:2;grid-row:1}
+.backup-tools .import-label{display:inline-flex;align-items:center;justify-content:center;grid-column:1/-1;min-height:40px;border:1px solid var(--line);border-radius:9px;background:var(--soft);font-size:12px;font-weight:700;cursor:pointer}
+.backup-tools #backupStatus{grid-column:1/-1}
+.reader-topbar #readerMenu[aria-expanded=true]{background:var(--soft);border-radius:9px}
+.verse-toolbar-actions button:focus-visible{outline:2px solid white;outline-offset:-2px}
+@media(max-width:380px){.top-actions{gap:0}.top-actions button{width:34px;height:36px}.backup-tools{grid-template-columns:1fr}.backup-tools .offline-button{grid-column:1;grid-row:auto}}
