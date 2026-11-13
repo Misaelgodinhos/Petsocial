@@ -10,6 +10,7 @@ toggle.onclick=()=>{enabled=!enabled;if(!enabled)multiSelected.clear();refresh()
 clear.onclick=()=>{multiSelected.clear();selected=null;refresh()};
 canvas.addEventListener('pointerdown',e=>{
 if(!enabled)return;
+if(e.button!==0&&e.pointerType==='mouse')return;
 e.preventDefault();e.stopImmediatePropagation();
 const o=hit(point(e));if(o){if(multiSelected.has(o.id))multiSelected.delete(o.id);else {const group=o.groupId?items.filter(x=>x.groupId===o.groupId&&isEditable(x)&&!x.hidden):[o];group.forEach(x=>multiSelected.add(x.id))}}
 selected=[...multiSelected].at(-1)||null;refresh();
@@ -42,7 +43,7 @@ const b=document.createElement('button');b.type='button';b.textContent=name;b.di
 }
 panelEl.append(section);
 }
-const observer=new MutationObserver(()=>{if(tool==='layers')install()});
+const observer=new MutationObserver(()=>{if(tool==='layers')queueMicrotask(install)});
 observer.observe(document.getElementById('toolPanel'),{childList:true});
 document.querySelectorAll('[data-tool="layers"]').forEach(b=>b.addEventListener('click',()=>queueMicrotask(install)));
 install();
