@@ -6,13 +6,13 @@ const $=s=>document.querySelector(s), escape=s=>String(s).replace(/[&<>"']/g,c=>
 const icon=(n)=>({home:'⌂',bible:'▤',search:'⌕',library:'♡',back:'←',next:'→',menu:'☰',bookmark:'☆'}[n]||'•');
 let state={tab:'home',book:Math.max(0,Math.min(65,Number(localStorage.getItem('nova_book')||0))),chapter:Math.max(1,Number(localStorage.getItem('nova_ch')||1)),font:Math.max(15,Math.min(30,Number(localStorage.getItem('nova_font')||19))),selected:null};
 let cache=new Map(),searchToken=0;
-const oldFavs=JSON.parse(localStorage.getItem('nova_favs')||'[]');
-let bookmarks=JSON.parse(localStorage.getItem('cordeiro_bookmarks')||'[]');
+let oldFavs=[];try{oldFavs=JSON.parse(localStorage.getItem('nova_favs')||'[]')}catch{}
+let bookmarks=[];try{bookmarks=JSON.parse(localStorage.getItem('cordeiro_bookmarks')||'[]')}catch{}
 const oldNotesPrefix='nova_note_';
 const save=()=>localStorage.setItem('cordeiro_bookmarks',JSON.stringify(bookmarks));
 const root=document.createElement('div');root.id='cordeiro5';document.body.replaceChildren(root);
 document.title='Cordeirinho — Bíblia Sagrada';
-async function load(i){if(cache.has(i))return cache.get(i);try{const r=await fetch('data/'+codes[i]+'.json');if(!r.ok)throw Error('HTTP '+r.status);const obj=await r.json();cache.set(i,obj);return obj}catch(e){return null}}
+async function load(i){if(cache.has(i))return cache.get(i);try{const r=await fetch('data/'+codes[i]+'.json');if(!r.ok)throw Error('HTTP '+r.status);const obj=await r.json();cache.set(i,obj);return obj}catch(e){try{const store=await caches.open('cordeiro-local-bible');const saved=await store.match('data/'+codes[i]+'.json');if(saved){const obj=await saved.json();cache.set(i,obj);return obj}}catch(err){}return null}}
 function shell(){root.innerHTML='<header class="top"><button class="brand" data-tab="home"><span class="mark">✳</span> Cordeirinho</button><button class="round" id="appearance" aria-label="Alternar tema">◐</button></header><main id="content" tabindex="-1"></main><nav class="tabs" aria-label="Navegação principal">'+[['home','Início'],['bible','Bíblia'],['search','Buscar'],['library','Biblioteca']].map(([k,v])=>'<button data-tab="'+k+'" class="'+(state.tab===k?'active':'')+'"><span>'+icon(k)+'</span>'+v+'</button>').join('')+'</nav>';root.querySelector('#appearance').onclick=()=>{document.documentElement.classList.toggle('night');localStorage.setItem('cordeiro_dark',document.documentElement.classList.contains('night')?'1':'0')};if(localStorage.getItem('cordeiro_dark')==='1')document.documentElement.classList.add('night')}
 function tab(t){state.tab=t;state.selected=null;shell();render();window.scrollTo(0,0)}
 function chooseBook(i){state.book=i;state.chapter=1;openChapter()}
