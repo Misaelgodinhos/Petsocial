@@ -1,11 +1,7 @@
-# NOVA Design 1.7 — publicação
+# NOVA Design 1.7 — publicado
 
-Destino: `nova-design/` neste repositório.
-Supabase: `https://dthqzavxqoejqszsijqd.supabase.co`.
-Tabela isolada: `public.design_projects` com RLS por proprietário.
+Arquivos restaurados do pacote original nova-design-1.7.zip. A única adaptação no editor é o preenchimento inicial da URL e chave pública do Supabase no index.html.
 
-Para publicar a versão integral, extrair `nova-design-1.7.zip` e enviar os arquivos `index.html`, `app.js`, `dashboard.js`, `enhancements.js` e `style.css` para esta pasta. O arquivo `supabase/schema.sql` já está documentado e a migração foi executada.
+URL: https://misaelgodinhos.github.io/Petsocial/nova-design/
 
-No painel Nuvem do aplicativo, configurar a URL acima e a chave pública publishable do projeto. Nunca publicar a service_role.
-
-GitHub Pages: se já estiver ativo para a branch principal na raiz, esta pasta será servida em `/Petsocial/nova-design/` após o upload do aplicativo. Não alterar a configuração de Pages da raiz sem conferir a configuração existente.
+Banco: dthqzavxqoejqszsijqd, tabela design_projects existente com RLS por proprietário. Nenhuma migração adicional foi necessária. Login e sincronização estão disponíveis em Projetos → Nuvem. A configuração de autenticação compartilhada e os demais projetos foram preservados.
