@@ -2,7 +2,7 @@
  * Publicação exige autenticação e backend configurados. */
 (()=>{'use strict';
 const esc=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-const safeUrl=v=>{try{const u=new URL(v,location.href);return u.protocol==='https:'||u.origin===location.origin?u.href:null}catch{return null}};
+const safeUrl=v=>{try{const u=new URL(v,location.href);return u.protocol==='https:'||u.origin===location.origin||(u.protocol==='blob:'&&urls.includes(u.href))?u.href:null}catch{return null}};
 let observer=null, urls=[],feed=[],active=null,muted=true;
 function cleanup(){observer?.disconnect();observer=null;document.querySelectorAll('.reel-card video').forEach(v=>v.pause());urls.forEach(u=>URL.revokeObjectURL(u));urls=[];active=null}
 async function fetchFeed(){try{const r=await fetch('videos.json',{cache:'no-cache'});if(!r.ok)return [];const d=await r.json();return Array.isArray(d)?d.filter(x=>x&&safeUrl(x.src)&&typeof x.title==='string').slice(0,100):[]}catch{return []}}
